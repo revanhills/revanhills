@@ -1,0 +1,18 @@
+# Local environment credentials
+.env
+.env.local
+.env.*.local
+!.env.example
+
+# Dependencies and build output
+node_modules/
+.next/
+dist/
+out/
+
+# Raw research, source downloads and private working material
+Doc/
+
+# Local tooling
+.DS_Store
+tmp/
