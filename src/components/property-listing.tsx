@@ -156,7 +156,7 @@ export function PropertyListing() {
 
           <section id="guide" className="listing-section guide-preview">
             <div className="section-title"><div><p className="eyebrow">AROUND REVAN HILLS</p><h2>Make more of the journey</h2></div><Link href="/experiences">Open local guide <ArrowRight size={17} /></Link></div>
-            <div className="guide-card-grid">{guideItems.slice(0, 3).map((item) => <Link href={`/experiences/${item.slug}`} key={item.slug} className="guide-card"><div><Image src={item.image} alt={item.title} fill sizes="(max-width: 760px) 82vw, 28vw" /></div><p>{item.eyebrow}</p><h3>{item.title}</h3><span>{item.summary}</span></Link>)}</div>
+            <div className="guide-card-grid">{guideItems.map((item) => <Link href={`/experiences/${item.slug}`} key={item.slug} className="guide-card"><div><Image src={item.image} alt={item.title} fill sizes="(max-width: 760px) 82vw, 28vw" /></div><p>{item.eyebrow}</p><h3>{item.title}</h3><span>{item.summary}</span></Link>)}</div>
           </section>
         </div>
 
