@@ -1,6 +1,6 @@
 # Revan Hills Farmstay - Product Plan
 
-Status: redesigned property listing deployed; GitHub-driven Cloudflare Pages delivery active.
+Status: redesigned property listing deployed to the original Revan Hills Cloudflare Pages URL; secondary Git-connected preview also active.
 
 Last updated: 2026-07-31
 
@@ -14,18 +14,30 @@ Last updated: 2026-07-31
 
 `voxxora` is not a second repository and does not own this website. It appears only because Git needs an authenticated GitHub user when this computer runs `git push`. The website remains connected to and published from `revanhills/revanhills`; `voxxora` is simply the authorized collaborator account currently used by the local GitHub CLI to send commits to that repository. If the `revanhills` owner account is authenticated directly on this computer later, it can perform the same publishing role and the `voxxora` collaborator is no longer technically necessary.
 
-## Cloudflare Pages connection
+## Cloudflare Pages projects and production relationship
 
-- Active Git-connected project: `revanhills-official`
-- Live URL: [revanhills-official.pages.dev](https://revanhills-official.pages.dev)
-- Cloudflare account: `Revanhillsofficial@gmail.com` (`27408494436c2288988271fb52947cca`)
-- Connected GitHub account: `revanhills`
-- Source repository and production branch: `revanhills/revanhills` → `main`
+### Original public site
+
+- Production project: `revanhills`
+- Public URL: [revanhills.pages.dev](https://revanhills.pages.dev)
+- Cloudflare account: `neofyne@gmail.com` (`09d3d8459abf2ec57175e74082aaa903`)
+- Deployment type: direct Wrangler upload; Cloudflare reports `Git Provider: No`
 - Build command: `npm run build`
 - Static output directory: `out`
-- First successful Git-based deployment: 2026-07-31
+- Redesigned listing deployed successfully on 2026-08-01 from Git commit `504116a`
 
-Cloudflare now builds and deploys this project from the GitHub repository. A push to `main` triggers a new production build automatically. The older `revanhills` Pages project and `revanhills.pages.dev` URL belong to the separate `neofyne@gmail.com` Cloudflare account and were deployed manually; they have not been deleted, migrated, or reconfigured. Do not treat that legacy project as the official Git-connected deployment unless the owners explicitly approve a migration or custom-domain change.
+This is the original Revan Hills Pages address and the production URL people may already know. A GitHub push alone does **not** update this project. Until its delivery workflow is deliberately migrated, publish it by building the current `main` checkout and deploying `out` to the `revanhills` Pages project while authenticated to the Neofyne Cloudflare account.
+
+### Secondary Git-connected project
+
+- Project: `revanhills-official`
+- URL: [revanhills-official.pages.dev](https://revanhills-official.pages.dev)
+- Cloudflare account: `Revanhillsofficial@gmail.com` (`27408494436c2288988271fb52947cca`)
+- Connected GitHub account/repository: `revanhills` / `revanhills/revanhills`
+- Production branch: `main`
+- Build command and output: `npm run build` → `out`
+
+This secondary project automatically deploys pushes to GitHub `main`, but it does not replace or update `revanhills.pages.dev`. Keep both projects intact until the owners choose the final Cloudflare account and domain migration path. Do not claim that a GitHub push updated the original URL without separately verifying the `revanhills` project deployment.
 
 ## 0. Current redesign execution plan (2026-07-31)
 
@@ -65,7 +77,7 @@ Replace the current editorial brochure-like homepage with a complete, mobile-fir
 - Treat private-room occupancy, all tariffs/taxes, exact map pin, meal inclusions, cancellation schedule, alarms, event policy and final room availability as owner-confirmation items.
 - A submitted form creates an enquiry/WhatsApp draft, not a confirmed booking or live inventory hold.
 - No fabricated reviews, star ratings, prices, travel times, availability, videos or attraction photography.
-- Publish through the documented GitHub-connected Cloudflare Pages project; do not alter the separate legacy Cloudflare project without explicit owner authorization.
+- Treat `revanhills.pages.dev` as the original public site and verify it after each authorized release; retain the separate Git-connected project until an owner-approved migration decision is made.
 
 ### Build order and verification
 
@@ -83,7 +95,7 @@ Replace the current editorial brochure-like homepage with a complete, mobile-fir
 - `npm run build`: passed; 20 static pages generated, including the listing, gallery, rooms, booking, FAQs and six attraction detail pages.
 - `git diff --check`: passed.
 - Local browser: confirmed requested hero image order (`hero-pool-villa.avif`, then `hero-aerial.png`), responsive mobile hero strip and fixed booking bar, desktop two-image mosaic and sticky booking card, scroll-triggered section navigation, 28-photo modal, complete amenities modal, private-room query handoff to Bedroom 4, date selection showing a two-night stay, and video-placeholder mode.
-- Deployment: Cloudflare Pages Git connection completed and the first production build passed at `https://revanhills-official.pages.dev/`. The deployed page was opened and its property content, room booking controls, guide links, amenities, rules and responsive listing structure were confirmed present.
+- Deployment: the Git-connected secondary project passed at `https://revanhills-official.pages.dev/`, then the same redesigned build was uploaded to the original `https://revanhills.pages.dev/` project under the Neofyne Cloudflare account. The original URL returned HTTP 200, its deployed HTML hash matched the local `out/index.html`, and a cache-busted browser load visibly confirmed the property listing, requested hero media, rooms, booking controls, guide links, amenities and rules.
 
 ### Deferred owner inputs (visible in the UI where relevant)
 
