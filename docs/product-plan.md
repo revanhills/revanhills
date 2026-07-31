@@ -44,6 +44,7 @@ This secondary project automatically deploys pushes to GitHub `main`, but it doe
 ### Brand lockups — 2026-08-01
 
 - Active header wording: `REVAN HILLS` on the first line and `ECOSTAY` on the second.
+- Header wordmark text is intentionally larger than the first implementation. Phone and WhatsApp use distinct bronze and forest-green 40px mobile touch targets with 17px icons for reliable finger access.
 - Heraldic Asiatic lion emblem (active): `public/brand/revan-hills-ecostay-lion.svg`. A restrained royal shield and graphic lion profile replace the former mascot-like face, creating a premium international-hospitality mark that remains legible at header and browser-icon sizes.
 - The lion silhouette is adapted and simplified from the CC0 public-domain `Lion head gules` heraldic reference on Wikimedia Commons; Revan Hills owns the surrounding shield, proportions, colour system and complete wordmark lockup.
 - Mountain/farm concept (archived alternate): `public/brand/revan-hills-ecostay-mountain.svg`.

@@ -14,7 +14,7 @@ export function SiteHeader({ compact = false }: { compact?: boolean }) {
         <div className="header-brand-group">
           <Brand />
           <div className="header-contact-row" aria-label="Contact Revan Hills">
-            <a href="tel:+919825077224" aria-label="Call Revan Hills host"><Phone /><span>Call host</span></a>
+            <a className="header-contact-row__phone" href="tel:+919825077224" aria-label="Call Revan Hills host"><Phone /><span>Call host</span></a>
             <a className="header-contact-row__whatsapp" href="https://wa.me/919825077224?text=Hello%20Revan%20Hills%2C%20I%20have%20a%20question%20about%20a%20stay." target="_blank" rel="noreferrer" aria-label="WhatsApp Revan Hills"><MessageCircle /><span>WhatsApp</span></a>
           </div>
         </div>
