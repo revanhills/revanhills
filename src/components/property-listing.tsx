@@ -120,7 +120,7 @@ export function PropertyListing() {
           </section>
 
           <section id="rooms" className="listing-section">
-            <div className="section-title"><div><p className="eyebrow">WHERE YOU’LL SLEEP</p><h2>Four rooms, two ways to stay</h2></div><Link href="/rooms">See room details <ArrowRight size={17} /></Link></div>
+            <div className="section-title"><div><p className="eyebrow">WHERE YOU’LL SLEEP</p><h2>4 rooms, 2 ways to stay</h2></div><Link href="/rooms">See room details <ArrowRight size={17} /></Link></div>
             <div className="room-scroll">{roomItems.map((room) => <article className="room-card" key={room.slug}><Link href={`/book?stay=room&room=${room.slug}`}><div className="room-card__image"><Image src={room.image} alt={room.name} fill sizes="(max-width: 760px) 78vw, 30vw" /></div><h3>{room.name}</h3><p>{room.beds}</p><span>{room.tone}</span></Link></article>)}</div>
             <div className="stay-choice-callout"><BedDouble /><div><h3>Prefer the whole place?</h3><p>Reserve all four bedrooms and the full villa for up to 8 guests.</p></div><Link href="/book?stay=villa">Choose entire villa</Link></div>
           </section>
