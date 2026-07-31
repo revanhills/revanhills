@@ -53,7 +53,7 @@ export const amenityGroups = [
   { title: "Kitchen & dining", items: ["Guest kitchen", "Fridge and mini fridge", "Cooking basics", "Crockery and cutlery", "Cooker", "Blender", "Dining table", "Coffee"] },
   { title: "Outdoor", items: ["Shared patio or balcony", "Back garden", "Outdoor furniture", "Outdoor dining area", "Private entrance"] },
   { title: "Parking & facilities", items: ["Free parking on premises", "Shared outdoor infinity pool", "Pool open 8:00 am–6:00 pm", "Solar panels", "Composting for whole-villa stays"] },
-  { title: "Services", items: ["Breakfast listed as provided — confirm for direct booking", "Self check-in with building staff", "Building staff available for arrival", "Daily housekeeping window listed for whole-villa stays"] },
+  { title: "Services", items: ["Breakfast availability — confirm inclusion with the host", "Self check-in with building staff", "Building staff available for arrival", "Daily housekeeping window listed for whole-villa stays"] },
   { title: "Safety", items: ["Exterior security cameras in common outdoor areas", "First aid kit", "No cameras in bedrooms, bathrooms or private spaces"] },
 ];
 
@@ -71,6 +71,15 @@ export const houseRules = [
 ];
 
 export const guideItems = [
+  {
+    slug: "gir-lions",
+    title: "Gir lions & Sasan Gir",
+    eyebrow: "The region’s signature wildlife",
+    image: "/images/property/gir-asiatic-lion.jpg",
+    summary: "Plan an official safari in the Gir landscape—the world’s only wild home of the Asiatic lion—and give this experience the time it deserves.",
+    detail: "The Gir region is globally known for its wild Asiatic lions. Plan the Gir Jungle Trail or Devalia Safari Park only through the official permit system, check seasonal closures and carry the required photo identification. Wildlife moves freely, so no responsible host or guide can promise a sighting.",
+    officialUrl: "https://girlion.gujarat.gov.in/",
+  },
   {
     slug: "girnar",
     title: "Girnar hills, temples & ropeway",
@@ -108,15 +117,6 @@ export const guideItems = [
     officialUrl: "",
   },
   {
-    slug: "sasan-gir-extension",
-    title: "Sasan Gir & Devalia extension",
-    eyebrow: "Longer outing",
-    image: "/images/property/nature-tree.avif",
-    summary: "Consider a separate day trip or onward stay for the Gir Jungle Trail or Devalia, using only the official permit portal.",
-    detail: "This is a longer experience than Girnar Nature Safari and should be planned separately. Permit availability, seasonal closures, guide fees and vehicle charges change; Revan Hills does not promise priority access or sightings.",
-    officialUrl: "https://girlion.gujarat.gov.in/",
-  },
-  {
     slug: "somnath-extension",
     title: "Somnath coastal extension",
     eyebrow: "Separate day trip",
@@ -135,15 +135,15 @@ export const faqGroups = [
   ]},
   { title: "Rooms, food & comfort", items: [
     ["What is the bed layout?", "Each of the four tagged bedrooms is listed with one king bed and one single bed."],
-    ["Is there air conditioning?", "No. Airbnb listed ceiling fans and did not list air conditioning. Confirm seasonal comfort needs with the host before booking."],
-    ["Is breakfast included?", "Breakfast was listed as provided on Airbnb, but direct-booking meal inclusion and prices still need host confirmation."],
-    ["Can guests use the kitchen?", "The source listing includes a guest kitchen, fridge, cooking basics, crockery, cooker, blender, dining table and coffee."],
+    ["Is there air conditioning?", "No. The rooms have ceiling fans; air conditioning is not currently offered. Confirm seasonal comfort needs with the host before booking."],
+    ["Is breakfast included?", "Breakfast availability, inclusion and meal prices should be confirmed with the host for your stay."],
+    ["Can guests use the kitchen?", "Guest amenities include a kitchen, fridge, cooking basics, crockery, cooker, blender, dining table and coffee."],
   ]},
   { title: "Pool, rules & safety", items: [
     ["When is the pool open?", "The shared outdoor infinity pool is listed as open from 8:00 am to 6:00 pm. Children must be actively supervised."],
     ["Are pets, smoking or alcohol allowed?", "No pets and no smoking are allowed. The property rules also prohibit alcohol, intoxicating substances and recreational drugs."],
     ["Are there security cameras?", "Yes, exterior CCTV covers common outdoor areas for safety. No cameras are installed inside rooms, bathrooms or private guest spaces."],
-    ["Are smoke and carbon monoxide alarms available?", "Their status was not reported in the source listing. Confirm directly with the host if this affects your booking decision."],
+    ["Are smoke and carbon monoxide alarms available?", "Their availability is not currently confirmed. Ask the host before booking if this affects your decision."],
   ]},
   { title: "Arrival & nearby plans", items: [
     ["Where is Revan Hills?", "Bawe wali dhar, Malida, Junagadh, Gujarat 362030, near the Girnar landscape. The exact map pin will be published after owner verification."],

@@ -19,7 +19,7 @@ export function SiteHeader({ compact = false }: { compact?: boolean }) {
         <div className="header-actions">
           <button className="language-button" aria-label="Language selector coming soon"><Globe2 size={17} /> EN</button>
           <a className="header-whatsapp" href="https://wa.me/919825077224" target="_blank" aria-label="WhatsApp Revan Hills"><MessageCircle size={18} /></a>
-          <Link className="button button--ink" href="/book">Book direct</Link>
+          <Link className="button button--ink" href="/book">Reserve</Link>
           <button className="menu-button" onClick={() => setOpen(!open)} aria-label="Open navigation" aria-expanded={open}>{open ? <X /> : <Menu />}</button>
         </div>
       </div>

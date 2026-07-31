@@ -111,6 +111,13 @@ Replace the current editorial brochure-like homepage with a complete, mobile-fir
 - Guests can also use a visible `Message host` link without completing the full availability form, or call the host directly.
 - Browser verification passed for Private room → Bedroom 4 → 10–12 August 2026 → 3 guests, including the populated booking summary and both host-contact paths. The final WhatsApp send was not triggered during QA because it would open an external conversation.
 
+### Listing-language and local-guide correction — 2026-08-01
+
+- Public copy no longer calls the property a `new`, `direct`, Airbnb or source listing. The website is the listing itself.
+- The header identifies the brand; the listing heading describes the stay, with host and capacity facts directly beneath it instead of repeating the property name and host heading.
+- `Gir lions & Sasan Gir` is the first nearby attraction on the property page and the complete local guide.
+- The lion photograph is locally hosted, depicts an Asiatic lion in Gir Forest and is credited in `docs/media-credits.md` under its Creative Commons licence.
+
 ### Deferred owner inputs (visible in the UI where relevant)
 
 - Exact room-by-room names and occupancy; whether the private listing is one selectable room or a shared multi-room offer.

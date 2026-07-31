@@ -21,7 +21,6 @@ import {
   Play,
   ShieldCheck,
   Sparkles,
-  Star,
   Trees,
   Users,
   Waves,
@@ -52,7 +51,7 @@ function Modal({ active, close }: { active: Exclude<ModalName, null>; close: () 
         <div className="modal-body">
           {active === "photos" && <div className="modal-photo-grid">{mediaItems.map((item, index) => <figure key={item.src} className={index % 7 === 0 ? "wide" : ""}><Image src={item.src} alt={item.alt} fill sizes="(max-width: 700px) 100vw, 50vw" /><figcaption>{item.category}</figcaption></figure>)}</div>}
           {active === "amenities" && <><div className="amenity-modal-grid">{amenityGroups.map((group) => <section key={group.title}><h3>{group.title}</h3>{group.items.map((item) => <p key={item}><Check size={18} />{item}</p>)}</section>)}</div><section className="not-included"><h3>Not included or not yet reported</h3>{unavailableAmenities.map((item) => <p key={item}><X size={18} />{item}</p>)}</section></>}
-          {active === "rules" && <div className="rules-modal"><section><h3>Checking in and out</h3><p>Check-in is from 10:00 am to 12:00 pm. Checkout is before 10:00 am. Building staff can help you self check in.</p></section><section><h3>During your stay</h3>{houseRules.map((rule) => <p key={rule}><Check size={18} />{rule}</p>)}</section><section><h3>Safety & property</h3><p>Exterior CCTV cameras cover common outdoor areas. There are no cameras inside bedrooms, bathrooms or private guest spaces.</p><p>Smoke and carbon monoxide alarm status was not reported in the source listing and should be confirmed before booking if important to you.</p></section></div>}
+          {active === "rules" && <div className="rules-modal"><section><h3>Checking in and out</h3><p>Check-in is from 10:00 am to 12:00 pm. Checkout is before 10:00 am. Building staff can help you self check in.</p></section><section><h3>During your stay</h3>{houseRules.map((rule) => <p key={rule}><Check size={18} />{rule}</p>)}</section><section><h3>Safety & property</h3><p>Exterior CCTV cameras cover common outdoor areas. There are no cameras inside bedrooms, bathrooms or private guest spaces.</p><p>Smoke and carbon monoxide alarm availability is not currently confirmed. Ask the host before booking if this is important to you.</p></section></div>}
           {active === "video" && <div className="video-placeholder-grid"><article className="video-card video-card--portrait"><div><Play fill="currentColor" /><span>Vertical video</span></div><h3>Full property walkthrough</h3><p>Video coming soon</p></article><article className="video-card video-card--portrait"><div><Play fill="currentColor" /><span>Vertical video</span></div><h3>Room-by-room tour</h3><p>Video coming soon</p></article><article className="video-card video-card--landscape"><div><Play fill="currentColor" /><span>Horizontal video</span></div><h3>Revan Hills from the air</h3><p>Video coming soon</p></article></div>}
         </div>
       </section>
@@ -95,7 +94,7 @@ export function PropertyListing() {
       </nav>
 
       <section className="shell listing-heading">
-        <div><p className="listing-kicker">Farm stay in Malida, near Junagadh</p><h1>Revan Hills — private villa & farmstay</h1><p className="listing-meta"><a href="#location">Malida, Gujarat, India</a><span>New direct listing</span></p></div>
+        <div><p className="listing-kicker">Farm stay in Malida, near Junagadh</p><h1>Private villa & farmstay near Girnar</h1><p className="listing-meta"><a href="#location">Malida, Gujarat, India</a><span>Hosted by Devang · 8 guests · 4 bedrooms · 8 beds · 5 bathrooms</span></p></div>
         <div className="listing-actions"><button onClick={() => navigator.clipboard?.writeText(window.location.href)}><ArrowRight size={17} /> Share</button><a href="https://wa.me/919825077224" target="_blank"><MessageCircle size={17} /> Save contact</a></div>
       </section>
 
@@ -107,11 +106,7 @@ export function PropertyListing() {
 
       <div className="shell listing-layout">
         <div className="listing-content">
-          <section id="overview" className="listing-section overview-section">
-            <div><h2>Entire farmstay hosted by Devang</h2><p>8 guests · 4 bedrooms · 8 beds · 5 bathrooms</p></div><div className="host-avatar">D</div>
-          </section>
-
-          <section className="listing-section quick-highlights">
+          <section id="overview" className="listing-section quick-highlights">
             <article><DoorOpen /><div><h3>Self check-in</h3><p>Building staff are available to welcome you.</p></div></article>
             <article><Waves /><div><h3>Dive right in</h3><p>A shared outdoor infinity pool, open 8:00 am–6:00 pm.</p></div></article>
             <article><Trees /><div><h3>Nature sets the pace</h3><p>Open farmland, garden paths, Girnar views and quieter nights.</p></div></article>
@@ -150,7 +145,7 @@ export function PropertyListing() {
 
           <section id="rules" className="listing-section">
             <p className="eyebrow">GOOD TO KNOW</p><h2>Before you book</h2>
-            <div className="know-grid"><article><CalendarDays /><h3>House rules</h3><p>Check-in 10:00 am–12:00 pm<br />Checkout before 10:00 am<br />No pets · No smoking</p></article><article><ShieldCheck /><h3>Safety</h3><p>Exterior CCTV in common areas. Alarm status should be confirmed.</p></article><article><CircleAlert /><h3>Cancellation</h3><p>Direct-booking cancellation and payment terms will be confirmed with your quote.</p></article></div>
+            <div className="know-grid"><article><CalendarDays /><h3>House rules</h3><p>Check-in 10:00 am–12:00 pm<br />Checkout before 10:00 am<br />No pets · No smoking</p></article><article><ShieldCheck /><h3>Safety</h3><p>Exterior CCTV in common areas. Alarm status should be confirmed.</p></article><article><CircleAlert /><h3>Cancellation</h3><p>Cancellation and payment terms will be confirmed with your quote.</p></article></div>
             <button className="text-action" onClick={() => setModal("rules")}>Show all rules and safety details <ChevronRight size={18} /></button>
           </section>
 
@@ -161,12 +156,12 @@ export function PropertyListing() {
 
           <section id="guide" className="listing-section guide-preview">
             <div className="section-title"><div><p className="eyebrow">AROUND REVAN HILLS</p><h2>Make more of the journey</h2></div><Link href="/experiences">Open local guide <ArrowRight size={17} /></Link></div>
-            <div className="guide-card-grid">{guideItems.slice(0, 3).map((item) => <Link href={`/experiences/${item.slug}`} key={item.slug} className="guide-card"><div><Image src={item.image} alt="" fill sizes="(max-width: 760px) 82vw, 28vw" /></div><p>{item.eyebrow}</p><h3>{item.title}</h3><span>{item.summary}</span></Link>)}</div>
+            <div className="guide-card-grid">{guideItems.slice(0, 3).map((item) => <Link href={`/experiences/${item.slug}`} key={item.slug} className="guide-card"><div><Image src={item.image} alt={item.title} fill sizes="(max-width: 760px) 82vw, 28vw" /></div><p>{item.eyebrow}</p><h3>{item.title}</h3><span>{item.summary}</span></Link>)}</div>
           </section>
         </div>
 
         <aside className="booking-card">
-          <div className="booking-card__top"><div><span>Book direct</span><strong>Price on request</strong></div><small><Star size={14} fill="currentColor" /> New listing</small></div>
+          <div className="booking-card__top"><div><span>Check availability</span><strong>Price on request</strong></div></div>
           <div className="stay-toggle" role="group" aria-label="Choose stay type"><button className={stayType === "villa" ? "active" : ""} onClick={() => { setStayType("villa"); setGuests(Math.min(guests, 8)); }}>Entire villa</button><button className={stayType === "room" ? "active" : ""} onClick={() => { setStayType("room"); setGuests(Math.min(guests, 3)); }}>Private room</button></div>
           <div className="booking-fields"><label><span>Check-in</span><input type="date" value={checkIn} onInput={(event) => setCheckIn(event.currentTarget.value)} /></label><label><span>Checkout</span><input type="date" min={checkIn} value={checkOut} onInput={(event) => setCheckOut(event.currentTarget.value)} /></label>{stayType === "room" && <label className="booking-fields__wide"><span>Preferred room</span><select value={selectedRoom} onChange={(event) => setSelectedRoom(event.target.value)}>{roomItems.map((item) => <option key={item.slug} value={item.slug}>{item.name}</option>)}</select></label>}<label className="booking-fields__wide"><span>Guests</span><select value={guests} onChange={(event) => setGuests(Number(event.target.value))}>{Array.from({ length: stayType === "villa" ? 8 : 3 }, (_, index) => index + 1).map((count) => <option key={count} value={count}>{count} guest{count === 1 ? "" : "s"}</option>)}</select></label></div>
           <Link className="button button--coral button--full" href={bookingHref}>Continue with these dates</Link>
