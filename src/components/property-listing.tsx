@@ -139,7 +139,7 @@ export function PropertyListing() {
           </section>
 
           <section className="listing-section host-section">
-            <div className="host-profile"><div className="host-avatar host-avatar--large">D</div><div><h2>Hosted by Devang</h2><p>Hosting since 2026 · Responds within an hour</p></div></div>
+            <div className="host-profile"><div><h2>Hosted by Devang</h2><p>Hosting since 2024 · Responds within an hour</p></div></div>
             <p>A filmmaker who enjoys reading and gardening, Devang describes the hosting style simply: make guests feel at home, spend time together when they want company, and give them space when they want quiet.</p>
             <a className="button button--outline-square" href="https://wa.me/919825077224" target="_blank"><MessageCircle size={17} /> Message the host</a>
           </section>
