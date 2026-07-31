@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 96" role="img" aria-labelledby="title description">
+  <title id="title">Revan Hills Ecostay mountain logo</title>
+  <desc id="description">An abstract Girnar-inspired mountain and farm contour beside the Revan Hills Ecostay wordmark.</desc>
+  <g fill="#1f493e">
+    <path d="M13 66C24 54 30 41 35 23c4 15 10 27 18 37 6-11 13-21 23-28-4 20-13 36-28 45-15-5-27-8-35-11Z"/>
+    <path d="M18 66c17-8 34-9 53-2" fill="none" stroke="#d94b53" stroke-width="4" stroke-linecap="round"/>
+  </g>
+  <g fill="#1f493e" font-family="Arial Black, Arial, sans-serif">
+    <text x="97" y="43" font-size="25" font-weight="900" letter-spacing="2.8">REVAN HILLS</text>
+    <text x="98" y="66" font-family="Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="6.2">ECOSTAY</text>
+  </g>
+</svg>

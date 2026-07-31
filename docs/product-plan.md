@@ -41,6 +41,13 @@ This secondary project automatically deploys pushes to GitHub `main`, but it doe
 
 ## 0. Current redesign execution plan (2026-07-31)
 
+### Brand lockups — 2026-08-01
+
+- Active header wording: `REVAN HILLS` on the first line and `ECOSTAY` on the second.
+- Mountain/farm concept (active): `public/brand/revan-hills-ecostay-mountain.svg`.
+- Abstract Asiatic lion concept (alternate, not active): `public/brand/revan-hills-ecostay-lion.svg`.
+- Keep both source SVGs editable and do not replace the active mark with the lion concept until the owner chooses it.
+
 ### Outcome
 
 Replace the current editorial brochure-like homepage with a complete, mobile-first direct property listing for Revan Hills. It will use familiar travel-booking interaction patterns without copying Airbnb branding or proprietary visual styling. Visitors should be able to understand the complete property, browse the real tagged media by category, compare whole-villa and room-by-room stays, choose dates and guests, and send a detailed booking request.
