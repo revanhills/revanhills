@@ -84,6 +84,7 @@ Replace the current editorial brochure-like homepage with a complete, mobile-fir
 - The section bar appears only after the hero/listing summary has scrolled past and links to Photos, Overview, Rooms, Amenities, Rules, Location and Guide.
 - The homepage Photo tour modal keeps its category bar sticky beneath the title. Selecting All photos, Exterior, Pool, Bedrooms, Bathrooms, Dining, Terrace, Garden, Views or Nearby replaces the grid with only that category and shows the photo count, avoiding one undifferentiated vertical tower.
 - The Junagadh heritage card uses a local optimized photograph of Mahabat Maqbara rather than any Revan Hills property image. Source: Kuldeep S, Wikimedia Commons, CC BY-SA 4.0. The former card image, `terrace-night.avif`, remains in the Photo tour exclusively under Terrace.
+- The Somnath coastal extension card uses a local optimized photograph of Somnath Temple beside the Arabian Sea. Source: Sneha G Gupta, Wikimedia Commons, CC BY-SA 4.0. The former card image, `pool-sunset.avif`, remains in the Photo tour exclusively under Pool.
 - Long content is progressively disclosed: amenities open in a modal; rules, safety and cancellation use expandable/modal detail views; FAQs use accordions; booking controls remain direct and visible.
 - Desktop booking summary is sticky beside listing content. Mobile uses a non-obscuring sticky bottom bar with `Check dates` and `WhatsApp`.
 - All dialogs must have an accessible title, close button, Escape handling, focus-safe controls and scrollable mobile layout.
