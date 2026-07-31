@@ -27,17 +27,20 @@ import {
   X,
 } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
-import { amenityGroups, guideItems, houseRules, MediaCategory, mediaItems, roomItems, unavailableAmenities } from "@/lib/property-data";
+import { amenityGroups, guideItems, houseRules, MediaCategory, mediaItems, roomItems, unavailableAmenities, VideoCategory, videoCategories, videoItems } from "@/lib/property-data";
 
 type ModalName = "photos" | "amenities" | "rules" | "video" | null;
 type PhotoCategory = "All" | MediaCategory;
 
 const photoCategories: PhotoCategory[] = ["All", "Exterior", "Pool", "Bedrooms", "Bathrooms", "Dining", "Terrace", "Garden", "Views", "Nearby"];
 
-function Modal({ active, close }: { active: Exclude<ModalName, null>; close: () => void }) {
+function Modal({ active, close, switchTo }: { active: Exclude<ModalName, null>; close: () => void; switchTo: (next: "photos" | "video") => void }) {
   const [photoCategory, setPhotoCategory] = useState<PhotoCategory>("All");
+  const [videoCategory, setVideoCategory] = useState<"All" | VideoCategory>("All");
   const modalBodyRef = useRef<HTMLDivElement>(null);
   const filteredPhotos = photoCategory === "All" ? mediaItems : mediaItems.filter((item) => item.category === photoCategory);
+  const filteredVideos = videoCategory === "All" ? videoItems : videoItems.filter((item) => item.category === videoCategory);
+  const isMediaTour = active === "photos" || active === "video";
 
   useEffect(() => {
     const onKey = (event: KeyboardEvent) => event.key === "Escape" && close();
@@ -54,12 +57,22 @@ function Modal({ active, close }: { active: Exclude<ModalName, null>; close: () 
     modalBodyRef.current?.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  const title = active === "photos" ? "Photo tour" : active === "amenities" ? "What this place offers" : active === "rules" ? "Things to know" : "Property videos";
+  const chooseVideoCategory = (nextCategory: "All" | VideoCategory) => {
+    setVideoCategory(nextCategory);
+    modalBodyRef.current?.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const switchMedia = (next: "photos" | "video") => {
+    modalBodyRef.current?.scrollTo({ top: 0 });
+    switchTo(next);
+  };
+
+  const title = isMediaTour ? "Property tour" : active === "amenities" ? "What this place offers" : "Things to know";
   return (
     <div className="modal-backdrop" role="presentation" onMouseDown={(event) => event.target === event.currentTarget && close()}>
       <section className={`modal-panel modal-panel--${active}`} role="dialog" aria-modal="true" aria-labelledby="modal-title">
-        <div className="modal-header"><h2 id="modal-title">{title}</h2><button className="icon-button" onClick={close} aria-label="Close"><X /></button></div>
-        <div ref={modalBodyRef} className={`modal-body ${active === "photos" ? "modal-body--photos" : ""}`}>
+        <div className="modal-header"><h2 id="modal-title">{title}</h2>{isMediaTour && <div className="modal-media-switch" role="tablist" aria-label="Choose photos or videos"><button type="button" role="tab" aria-selected={active === "photos"} className={active === "photos" ? "active" : ""} onClick={() => switchMedia("photos")}><Images /> Photos <small>{mediaItems.length}</small></button><button type="button" role="tab" aria-selected={active === "video"} className={active === "video" ? "active" : ""} onClick={() => switchMedia("video")}><Play /> Videos <small>{videoItems.length}</small></button></div>}<button className="icon-button" onClick={close} aria-label="Close"><X /></button></div>
+        <div ref={modalBodyRef} className={`modal-body ${isMediaTour ? "modal-body--photos" : ""}`}>
           {active === "photos" && <>
             <nav className="photo-tour-nav" aria-label="Photo categories">
               <div className="photo-tour-tabs" role="tablist" aria-label="Choose a photo category">
@@ -74,7 +87,18 @@ function Modal({ active, close }: { active: Exclude<ModalName, null>; close: () 
           </>}
           {active === "amenities" && <><div className="amenity-modal-grid">{amenityGroups.map((group) => <section key={group.title}><h3>{group.title}</h3>{group.items.map((item) => <p key={item}><Check size={18} />{item}</p>)}</section>)}</div><section className="not-included"><h3>Not included or not yet reported</h3>{unavailableAmenities.map((item) => <p key={item}><X size={18} />{item}</p>)}</section></>}
           {active === "rules" && <div className="rules-modal"><section><h3>Checking in and out</h3><p>Check-in is from 10:00 am to 12:00 pm. Checkout is before 10:00 am. Building staff can help you self check in.</p></section><section><h3>During your stay</h3>{houseRules.map((rule) => <p key={rule}><Check size={18} />{rule}</p>)}</section><section><h3>Safety & property</h3><p>Exterior CCTV cameras cover common outdoor areas. There are no cameras inside bedrooms, bathrooms or private guest spaces.</p><p>Smoke and carbon monoxide alarm availability is not currently confirmed. Ask the host before booking if this is important to you.</p></section></div>}
-          {active === "video" && <div className="video-placeholder-grid"><article className="video-card video-card--portrait"><div><Play fill="currentColor" /><span>Vertical video</span></div><h3>Full property walkthrough</h3><p>Video coming soon</p></article><article className="video-card video-card--portrait"><div><Play fill="currentColor" /><span>Vertical video</span></div><h3>Room-by-room tour</h3><p>Video coming soon</p></article><article className="video-card video-card--landscape"><div><Play fill="currentColor" /><span>Horizontal video</span></div><h3>Revan Hills from the air</h3><p>Video coming soon</p></article></div>}
+          {active === "video" && <>
+            <nav className="photo-tour-nav" aria-label="Video categories">
+              <div className="photo-tour-tabs" role="tablist" aria-label="Choose a video category">
+                {videoCategories.map((item) => {
+                  const count = item === "All" ? videoItems.length : videoItems.filter((video) => video.category === item).length;
+                  return <button key={item} type="button" role="tab" aria-selected={videoCategory === item} className={videoCategory === item ? "active" : ""} onClick={() => chooseVideoCategory(item)}><span>{item === "All" ? "All videos" : item}</span><small>{count}</small></button>;
+                })}
+              </div>
+              <p><strong>{videoCategory === "All" ? "All planned tours" : videoCategory}</strong><span>{filteredVideos.length} video{filteredVideos.length === 1 ? "" : "s"} coming soon</span></p>
+            </nav>
+            <div className="video-placeholder-grid video-placeholder-grid--tour">{filteredVideos.map((item) => <article key={item.id} className={`video-card video-card--${item.orientation}`}><div><Play fill="currentColor" /><span>{item.format}</span></div><h3>{item.title}</h3><p>{item.category} · Video coming soon</p></article>)}</div>
+          </>}
         </div>
       </section>
     </div>
@@ -123,7 +147,7 @@ export function PropertyListing() {
       <section id="photos" className="shell hero-gallery">
         <div className="hero-gallery__lead-wrap">
           <button className="hero-gallery__lead" onClick={() => setModal("photos")} aria-label="Open all property photos"><Image src="/images/property/hero-pool-villa.avif" alt="Revan Hills villa and infinity pool in daylight" fill priority sizes="100vw" /></button>
-          <button className="show-photos" onClick={() => setModal("photos")}><Images size={18} /> Show all {mediaItems.length} photos</button>
+          <div className="hero-media-selector" aria-label="Open property media tour"><button type="button" onClick={() => setModal("photos")}><Images /> {mediaItems.length} photos</button><button type="button" onClick={() => setModal("video")}><Play /> Videos <small>coming soon</small></button></div>
         </div>
         <div className="hero-gallery__strip" role="list" aria-label="More property photos">
           {mediaItems.slice(1, 9).map((item, index) => <button key={item.src} role="listitem" className={index % 4 === 0 ? "hero-gallery__thumb hero-gallery__thumb--wide" : index % 4 === 3 ? "hero-gallery__thumb hero-gallery__thumb--narrow" : "hero-gallery__thumb"} onClick={() => setModal("photos")} aria-label={`Open photo tour: ${item.alt}`}><Image src={item.src} alt={item.alt} fill sizes="(max-width: 760px) 40vw, 20vw" /></button>)}
@@ -207,7 +231,7 @@ export function PropertyListing() {
       </div>
 
       <div className="mobile-booking-bar"><div><strong>Price on request</strong><span>Choose dates for availability</span></div><Link href="/book" className="button button--coral">Check dates</Link></div>
-      {modal && <Modal active={modal} close={() => setModal(null)} />}
+      {modal && <Modal active={modal} close={() => setModal(null)} switchTo={(next) => setModal(next)} />}
     </main>
   );
 }

@@ -37,6 +37,29 @@ export const mediaItems: MediaItem[] = [
   { src: "/images/property/nearby-waterfall.avif", alt: "Rocky seasonal waterfall near Junagadh", category: "Nearby" },
 ];
 
+export type VideoCategory = "Full property" | "Exterior" | "Rooms" | "Pool" | "Farm & outdoors" | "Food & dining" | "Nearby";
+
+export type VideoItem = {
+  id: string;
+  title: string;
+  category: VideoCategory;
+  format: "9:16 vertical" | "16:9 horizontal";
+  orientation: "portrait" | "landscape";
+};
+
+export const videoCategories: Array<"All" | VideoCategory> = ["All", "Full property", "Exterior", "Rooms", "Pool", "Farm & outdoors", "Food & dining", "Nearby"];
+
+export const videoItems: VideoItem[] = [
+  { id: "villa-walkthrough", title: "Full villa walkthrough", category: "Full property", format: "9:16 vertical", orientation: "portrait" },
+  { id: "arrival-exterior", title: "Arrival, façade & veranda", category: "Exterior", format: "9:16 vertical", orientation: "portrait" },
+  { id: "bedrooms-one-two", title: "Bedrooms 1 & 2 tour", category: "Rooms", format: "9:16 vertical", orientation: "portrait" },
+  { id: "bedrooms-three-four", title: "Bedrooms 3 & 4 tour", category: "Rooms", format: "9:16 vertical", orientation: "portrait" },
+  { id: "pool-tour", title: "Infinity pool tour", category: "Pool", format: "9:16 vertical", orientation: "portrait" },
+  { id: "farm-outdoors", title: "Farm, garden & outdoor spaces", category: "Farm & outdoors", format: "9:16 vertical", orientation: "portrait" },
+  { id: "food-dining", title: "Food & dining at Revan Hills", category: "Food & dining", format: "9:16 vertical", orientation: "portrait" },
+  { id: "nearby-landscape", title: "Girnar & nearby journey", category: "Nearby", format: "16:9 horizontal", orientation: "landscape" },
+];
+
 export const roomItems = [
   { slug: "bedroom-1", name: "Bedroom 1", image: "/images/property/bedroom-1.avif", beds: "1 king bed · 1 single bed", bathroom: "Bathroom access", tone: "Pink floral room" },
   { slug: "bedroom-2", name: "Bedroom 2", image: "/images/property/bedroom-2.avif", beds: "1 king bed · 1 single bed", bathroom: "Bathroom access", tone: "Warm yellow room" },

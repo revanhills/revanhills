@@ -81,6 +81,14 @@ Replace the current editorial brochure-like homepage with a complete, mobile-fir
 
 ### Interaction model
 
+#### Unified media tour — 2026-08-01
+
+1. Replace the homepage’s photo-only action with an immediately visible Photos/Videos selector over the hero.
+2. Keep Photos and Videos switchable inside the tour without closing it.
+3. Preserve the sticky photo categories and add a separate sticky video category set: All videos, Full property, Exterior, Rooms, Pool, Farm & outdoors, Food & dining and Nearby.
+4. Use categorized portrait-first video placeholders until real footage is uploaded; every placeholder must clearly say that the video is coming soon.
+5. Reuse the same categorized media model on `/gallery` so the homepage tour and full gallery never contradict each other.
+
 - Desktop hero uses a two-panel mosaic with an overlaid `Show all photos` action; mobile uses a swipeable two-card strip.
 - The section bar appears only after the hero/listing summary has scrolled past and links to Photos, Overview, Rooms, Amenities, Rules, Location and Guide.
 - The primary logo/contact/menu header remains sticky at the top throughout scrolling. When triggered, the property section bar stacks directly below it rather than replacing or hiding the primary header.
