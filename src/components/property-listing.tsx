@@ -17,7 +17,6 @@ import {
   Flower2,
   Images,
   MessageCircle,
-  Phone,
   Play,
   ShieldCheck,
   Sparkles,
@@ -94,7 +93,7 @@ export function PropertyListing() {
       </nav>
 
       <section className="shell listing-heading">
-        <div><p className="listing-kicker">Farm stay in Malida, near Junagadh</p><h1>Private villa & farmstay near Girnar</h1><p className="listing-meta"><a href="#location">Malida, Gujarat, India</a></p><div className="listing-fact-row" aria-label="Property highlights"><strong>Hosted by Devang</strong><span><Users /> 8 guests</span><span><DoorOpen /> 4 bedrooms</span><span><BedDouble /> 8 beds</span><span><Bath /> 5 bathrooms</span></div><div className="listing-contact-row"><a href="tel:+919825077224"><Phone /> Call host</a><a className="listing-contact-row__whatsapp" href="https://wa.me/919825077224?text=Hello%20Revan%20Hills%2C%20I%20have%20a%20question%20about%20a%20stay." target="_blank" rel="noreferrer"><MessageCircle /> WhatsApp</a></div></div>
+        <div><p className="listing-kicker">Farm stay in Malida, near Junagadh</p><h1>Private villa & farmstay near Girnar</h1><p className="listing-meta"><a href="#location">Malida, Gujarat, India</a></p><div className="listing-fact-row" aria-label="Property highlights"><strong>Hosted by Devang</strong><span><Users /> 8 guests</span><span><DoorOpen /> 4 bedrooms</span><span><BedDouble /> 8 beds</span><span><Bath /> 5 bathrooms</span></div></div>
         <div className="listing-actions"><button onClick={() => navigator.clipboard?.writeText(window.location.href)}><ArrowRight size={17} /> Share</button></div>
       </section>
 
