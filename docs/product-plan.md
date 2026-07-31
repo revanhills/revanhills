@@ -61,7 +61,7 @@ Replace the current editorial brochure-like homepage with a complete, mobile-fir
 
 ### Information architecture
 
-1. **Property listing (`/`)** - compact brand header, listing title and facts, two-image hero mosaic, scroll-triggered section navigation, overview, sleeping arrangements, room cards, amenities preview with a full modal, host story, rules/safety/accessibility summaries with detail modals, location teaser, nearby highlights, and sticky booking card.
+1. **Property listing (`/`)** - compact brand header, listing title and facts, a fixed full-width pool-villa hero followed by a swipeable Flickr-style strip of smaller mixed-width photos, scroll-triggered section navigation, overview, sleeping arrangements, room cards, amenities preview with a full modal, host story, rules/safety/accessibility summaries with detail modals, location teaser, nearby highlights, and sticky booking card.
 2. **Photo and video tour (`/gallery`)** - category filters for All, Exterior, Pool, Bedrooms, Bathrooms, Dining, Terrace, Garden, Views and Nearby; remove known duplicates/collages/screenshots; include a Photos/Videos mode and honest video placeholders until source clips arrive.
 3. **Rooms (`/rooms`)** - four room cards with their tagged photographs, king + single bed layout, amenities, occupancy status to verify, and a per-room booking entry point. Whole-villa booking remains equally prominent.
 4. **Booking (`/book`)** - interactive whole-villa/private-room selector, check-in/out date fields, guests/rooms controls, meal preference, contact details, an availability/enquiry summary, and WhatsApp handoff. Unknown tariffs remain explicitly “on request”; the UI must never invent prices or claim a confirmed reservation.

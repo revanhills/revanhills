@@ -97,10 +97,14 @@ export function PropertyListing() {
         <div className="listing-actions"><button onClick={() => navigator.clipboard?.writeText(window.location.href)}><ArrowRight size={17} /> Share</button></div>
       </section>
 
-      <section id="photos" className="shell hero-mosaic">
-        <button className="hero-mosaic__main" onClick={() => setModal("photos")} aria-label="Open all property photos"><Image src="/images/property/hero-pool-villa.avif" alt="Revan Hills villa and infinity pool in daylight" fill priority sizes="(max-width: 760px) 88vw, 66vw" /></button>
-        <button className="hero-mosaic__side" onClick={() => setModal("photos")} aria-label="Open aerial property photo"><Image src="/images/property/hero-aerial.png" alt="Aerial view of Revan Hills at sunset" fill priority sizes="(max-width: 760px) 88vw, 34vw" /></button>
-        <button className="show-photos" onClick={() => setModal("photos")}><Images size={18} /> Show all {mediaItems.length} photos</button>
+      <section id="photos" className="shell hero-gallery">
+        <div className="hero-gallery__lead-wrap">
+          <button className="hero-gallery__lead" onClick={() => setModal("photos")} aria-label="Open all property photos"><Image src="/images/property/hero-pool-villa.avif" alt="Revan Hills villa and infinity pool in daylight" fill priority sizes="100vw" /></button>
+          <button className="show-photos" onClick={() => setModal("photos")}><Images size={18} /> Show all {mediaItems.length} photos</button>
+        </div>
+        <div className="hero-gallery__strip" role="list" aria-label="More property photos">
+          {mediaItems.slice(1, 9).map((item, index) => <button key={item.src} role="listitem" className={index % 4 === 0 ? "hero-gallery__thumb hero-gallery__thumb--wide" : index % 4 === 3 ? "hero-gallery__thumb hero-gallery__thumb--narrow" : "hero-gallery__thumb"} onClick={() => setModal("photos")} aria-label={`Open photo tour: ${item.alt}`}><Image src={item.src} alt={item.alt} fill sizes="(max-width: 760px) 40vw, 20vw" /></button>)}
+        </div>
       </section>
 
       <div className="shell listing-layout">
