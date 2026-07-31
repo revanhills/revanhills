@@ -83,6 +83,7 @@ Replace the current editorial brochure-like homepage with a complete, mobile-fir
 
 - Desktop hero uses a two-panel mosaic with an overlaid `Show all photos` action; mobile uses a swipeable two-card strip.
 - The section bar appears only after the hero/listing summary has scrolled past and links to Photos, Overview, Rooms, Amenities, Rules, Location and Guide.
+- The primary logo/contact/menu header remains sticky at the top throughout scrolling. When triggered, the property section bar stacks directly below it rather than replacing or hiding the primary header.
 - Sticky section labels use the Revan Hills forest green rather than black, with a coral hover and keyboard-focus treatment.
 - The listing intro shows the Malida/Junagadh location once. Its host and capacity facts remain on one uninterrupted row; the host is muted and separated vertically so the four property facts retain priority.
 - The homepage Photo tour modal keeps its category bar sticky beneath the title. Selecting All photos, Exterior, Pool, Bedrooms, Bathrooms, Dining, Terrace, Garden, Views or Nearby replaces the grid with only that category and shows the photo count, avoiding one undifferentiated vertical tower.
