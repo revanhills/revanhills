@@ -4,6 +4,16 @@ Status: active local redesign - property-listing experience in progress; no depl
 
 Last updated: 2026-07-31
 
+## GitHub repository and account relationship
+
+- Canonical repository: [revanhills/revanhills](https://github.com/revanhills/revanhills)
+- Git remote used by this local checkout: `origin = https://github.com/revanhills/revanhills.git`
+- Default and release branch: `main`
+- Repository owner/login: `revanhills`
+- Local publishing identity: `voxxora`, added as a collaborator with Write access on 2026-07-31.
+
+`voxxora` is not a second repository and does not own this website. It appears only because Git needs an authenticated GitHub user when this computer runs `git push`. The website remains connected to and published from `revanhills/revanhills`; `voxxora` is simply the authorized collaborator account currently used by the local GitHub CLI to send commits to that repository. If the `revanhills` owner account is authenticated directly on this computer later, it can perform the same publishing role and the `voxxora` collaborator is no longer technically necessary.
+
 ## 0. Current redesign execution plan (2026-07-31)
 
 ### Outcome
