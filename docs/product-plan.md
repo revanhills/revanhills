@@ -1,6 +1,6 @@
 # Revan Hills Farmstay - Product Plan
 
-Status: active local redesign - property-listing experience in progress; no deployment authorized.
+Status: redesigned property listing deployed; GitHub-driven Cloudflare Pages delivery active.
 
 Last updated: 2026-07-31
 
@@ -13,6 +13,19 @@ Last updated: 2026-07-31
 - Local publishing identity: `voxxora`, added as a collaborator with Write access on 2026-07-31.
 
 `voxxora` is not a second repository and does not own this website. It appears only because Git needs an authenticated GitHub user when this computer runs `git push`. The website remains connected to and published from `revanhills/revanhills`; `voxxora` is simply the authorized collaborator account currently used by the local GitHub CLI to send commits to that repository. If the `revanhills` owner account is authenticated directly on this computer later, it can perform the same publishing role and the `voxxora` collaborator is no longer technically necessary.
+
+## Cloudflare Pages connection
+
+- Active Git-connected project: `revanhills-official`
+- Live URL: [revanhills-official.pages.dev](https://revanhills-official.pages.dev)
+- Cloudflare account: `Revanhillsofficial@gmail.com` (`27408494436c2288988271fb52947cca`)
+- Connected GitHub account: `revanhills`
+- Source repository and production branch: `revanhills/revanhills` → `main`
+- Build command: `npm run build`
+- Static output directory: `out`
+- First successful Git-based deployment: 2026-07-31
+
+Cloudflare now builds and deploys this project from the GitHub repository. A push to `main` triggers a new production build automatically. The older `revanhills` Pages project and `revanhills.pages.dev` URL belong to the separate `neofyne@gmail.com` Cloudflare account and were deployed manually; they have not been deleted, migrated, or reconfigured. Do not treat that legacy project as the official Git-connected deployment unless the owners explicitly approve a migration or custom-domain change.
 
 ## 0. Current redesign execution plan (2026-07-31)
 
@@ -52,7 +65,7 @@ Replace the current editorial brochure-like homepage with a complete, mobile-fir
 - Treat private-room occupancy, all tariffs/taxes, exact map pin, meal inclusions, cancellation schedule, alarms, event policy and final room availability as owner-confirmation items.
 - A submitted form creates an enquiry/WhatsApp draft, not a confirmed booking or live inventory hold.
 - No fabricated reviews, star ratings, prices, travel times, availability, videos or attraction photography.
-- Keep this work local. Deployment is a separate owner-authorized step.
+- Publish through the documented GitHub-connected Cloudflare Pages project; do not alter the separate legacy Cloudflare project without explicit owner authorization.
 
 ### Build order and verification
 
@@ -70,7 +83,7 @@ Replace the current editorial brochure-like homepage with a complete, mobile-fir
 - `npm run build`: passed; 20 static pages generated, including the listing, gallery, rooms, booking, FAQs and six attraction detail pages.
 - `git diff --check`: passed.
 - Local browser: confirmed requested hero image order (`hero-pool-villa.avif`, then `hero-aerial.png`), responsive mobile hero strip and fixed booking bar, desktop two-image mosaic and sticky booking card, scroll-triggered section navigation, 28-photo modal, complete amenities modal, private-room query handoff to Bedroom 4, date selection showing a two-night stay, and video-placeholder mode.
-- Deployment: not performed. The redesigned app remains locally available at `http://localhost:3000/`.
+- Deployment: Cloudflare Pages Git connection completed and the first production build passed at `https://revanhills-official.pages.dev/`. The deployed page was opened and its property content, room booking controls, guide links, amenities, rules and responsive listing structure were confirmed present.
 
 ### Deferred owner inputs (visible in the UI where relevant)
 
