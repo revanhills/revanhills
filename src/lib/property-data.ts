@@ -146,7 +146,7 @@ export const faqGroups = [
     ["Are smoke and carbon monoxide alarms available?", "Their availability is not currently confirmed. Ask the host before booking if this affects your decision."],
   ]},
   { title: "Arrival & nearby plans", items: [
-    ["Where is Revan Hills?", "Bawe wali dhar, Malida, Junagadh, Gujarat 362030, near the Girnar landscape. The exact map pin will be published after owner verification."],
+    ["Where is Revan Hills?", "Revan Hills is at Bawe wali dhar, Malida, near Junagadh and the Girnar landscape. The website map shows the exact property pin and links directly to Google Maps directions."],
     ["Can the hosts help plan nearby experiences?", "They can help with practical local context, but regulated forest permits must be booked on the official Gujarat portal and wildlife sightings are never guaranteed."],
   ]},
 ];

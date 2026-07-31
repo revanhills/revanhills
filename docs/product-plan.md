@@ -48,6 +48,13 @@ This secondary project automatically deploys pushes to GitHub `main`, but it doe
 - Mountain/farm concept (archived alternate): `public/brand/revan-hills-ecostay-mountain.svg`.
 - Keep both source SVGs editable; the header mark and browser icon use the chosen lion identity.
 
+### Verified property map — 2026-08-01
+
+- Exact pin used on the public property page: `21.566116, 70.594910`.
+- Primary evidence: the saved Revan Hills Airbnb location-editor audit exposes the Google Maps centre link for these coordinates in `Doc/DATA/chat gpt/revan_hills_private_editor_details_audit.json`.
+- Address cross-check: the current public Revanhills accommodation listing identifies the property as Revan Hills, Bava wali Dhar, Malida.
+- The homepage embeds Google Maps at the exact coordinates and includes a direct Google Maps directions link. Do not replace it with a village-centre placeholder.
+
 ### Outcome
 
 Replace the current editorial brochure-like homepage with a complete, mobile-first direct property listing for Revan Hills. It will use familiar travel-booking interaction patterns without copying Airbnb branding or proprietary visual styling. Visitors should be able to understand the complete property, browse the real tagged media by category, compare whole-villa and room-by-room stays, choose dates and guests, and send a detailed booking request.

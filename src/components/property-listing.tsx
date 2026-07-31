@@ -16,7 +16,6 @@ import {
   DoorOpen,
   Flower2,
   Images,
-  MapPin,
   MessageCircle,
   Phone,
   Play,
@@ -152,7 +151,16 @@ export function PropertyListing() {
 
           <section id="location" className="listing-section location-section">
             <p className="eyebrow">WHERE YOU’LL BE</p><h2>Malida, Junagadh, Gujarat</h2><p>Revan Hills · Bawe wali dhar, Malida · Junagadh, Gujarat 362030</p>
-            <div className="map-placeholder"><MapPin /><div><strong>Exact map pin being verified</strong><span>Arrival directions will be shared with confirmed guests.</span></div></div>
+            <div className="property-map">
+              <iframe
+                title="Exact location of Revan Hills Ecostay on Google Maps"
+                src="https://www.google.com/maps?q=21.566116,70.594910&t=k&z=18&output=embed"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                allowFullScreen
+              />
+            </div>
+            <div className="property-map__footer"><div><strong>Revan Hills Ecostay</strong><span>Exact property pin · 21.566116, 70.594910</span></div><a className="button button--outline-square" href="https://www.google.com/maps/dir/?api=1&destination=21.566116%2C70.594910" target="_blank" rel="noreferrer">Open exact pin</a></div>
           </section>
 
           <section id="guide" className="listing-section guide-preview">
