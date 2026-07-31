@@ -81,6 +81,14 @@ Replace the current editorial brochure-like homepage with a complete, mobile-fir
 
 ### Interaction model
 
+#### Visual private-room selection — 2026-08-01
+
+1. Replace the booking page's private-room dropdown with four real room thumbnails shown together in a compact two-by-two selector.
+2. Give the chosen room a high-contrast border, check mark and `Selected room` label so the booking choice cannot be mistaken.
+3. Tapping a room thumbnail both selects that room and opens its room-specific media tour.
+4. Each room tour switches between Photos and Videos without closing: one real room photo plus three honest future-photo slots, and three portrait-video slots until more media is supplied.
+5. Keep the booking summary and WhatsApp request tied to the selected room after the media tour closes.
+
 #### Unified media tour — 2026-08-01
 
 1. Replace the homepage’s photo-only action with an immediately visible Photos/Videos selector over the hero.
