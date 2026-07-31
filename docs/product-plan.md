@@ -44,7 +44,7 @@ This secondary project automatically deploys pushes to GitHub `main`, but it doe
 ### Brand lockups — 2026-08-01
 
 - Active header wording: `REVAN HILLS` on the first line and `ECOSTAY` on the second.
-- Refined geometric Asiatic lion emblem (active): `public/brand/revan-hills-ecostay-lion.svg`. The angular, single-colour construction avoids mascot styling and remains legible at header and browser-icon sizes.
+- Graphic Asiatic lion emblem (active): `public/brand/revan-hills-ecostay-lion.svg`. The sculpted organic mane, feline brow and compact muzzle create a high-contrast hospitality mark without mascot or dog-like styling, while remaining legible at header and browser-icon sizes.
 - Mountain/farm concept (archived alternate): `public/brand/revan-hills-ecostay-mountain.svg`.
 - Keep both source SVGs editable; the header mark and browser icon use the chosen lion identity.
 
