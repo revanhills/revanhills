@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import {
   ArrowRight,
   Bath,
@@ -64,6 +64,18 @@ export function PropertyListing() {
   const [modal, setModal] = useState<ModalName>(null);
   const [showSections, setShowSections] = useState(false);
   const [stayType, setStayType] = useState<"villa" | "room">("villa");
+  const [selectedRoom, setSelectedRoom] = useState(roomItems[0].slug);
+  const [checkIn, setCheckIn] = useState("");
+  const [checkOut, setCheckOut] = useState("");
+  const [guests, setGuests] = useState(2);
+
+  const bookingHref = useMemo(() => {
+    const params = new URLSearchParams({ stay: stayType, guests: String(guests) });
+    if (stayType === "room") params.set("room", selectedRoom);
+    if (checkIn) params.set("checkIn", checkIn);
+    if (checkOut) params.set("checkOut", checkOut);
+    return `/book?${params.toString()}`;
+  }, [checkIn, checkOut, guests, selectedRoom, stayType]);
 
   useEffect(() => {
     const update = () => setShowSections(window.scrollY > 620);
@@ -155,9 +167,10 @@ export function PropertyListing() {
 
         <aside className="booking-card">
           <div className="booking-card__top"><div><span>Book direct</span><strong>Price on request</strong></div><small><Star size={14} fill="currentColor" /> New listing</small></div>
-          <div className="stay-toggle" role="group" aria-label="Choose stay type"><button className={stayType === "villa" ? "active" : ""} onClick={() => setStayType("villa")}>Entire villa</button><button className={stayType === "room" ? "active" : ""} onClick={() => setStayType("room")}>Private room</button></div>
-          <div className="booking-fields"><label><span>Check-in</span><input type="date" /></label><label><span>Checkout</span><input type="date" /></label><label className="booking-fields__wide"><span>Guests</span><select defaultValue="1"><option value="1">1 guest</option>{[2,3,4,5,6,7,8].map((count) => <option key={count} value={count}>{count} guests</option>)}</select></label></div>
-          <Link className="button button--coral button--full" href={`/book?stay=${stayType}`}>Check availability</Link>
+          <div className="stay-toggle" role="group" aria-label="Choose stay type"><button className={stayType === "villa" ? "active" : ""} onClick={() => { setStayType("villa"); setGuests(Math.min(guests, 8)); }}>Entire villa</button><button className={stayType === "room" ? "active" : ""} onClick={() => { setStayType("room"); setGuests(Math.min(guests, 3)); }}>Private room</button></div>
+          <div className="booking-fields"><label><span>Check-in</span><input type="date" value={checkIn} onInput={(event) => setCheckIn(event.currentTarget.value)} /></label><label><span>Checkout</span><input type="date" min={checkIn} value={checkOut} onInput={(event) => setCheckOut(event.currentTarget.value)} /></label>{stayType === "room" && <label className="booking-fields__wide"><span>Preferred room</span><select value={selectedRoom} onChange={(event) => setSelectedRoom(event.target.value)}>{roomItems.map((item) => <option key={item.slug} value={item.slug}>{item.name}</option>)}</select></label>}<label className="booking-fields__wide"><span>Guests</span><select value={guests} onChange={(event) => setGuests(Number(event.target.value))}>{Array.from({ length: stayType === "villa" ? 8 : 3 }, (_, index) => index + 1).map((count) => <option key={count} value={count}>{count} guest{count === 1 ? "" : "s"}</option>)}</select></label></div>
+          <Link className="button button--coral button--full" href={bookingHref}>Continue with these dates</Link>
+          <a className="booking-message-link" href="https://wa.me/919825077224?text=Hello%20Revan%20Hills%2C%20I%20have%20a%20question%20about%20booking." target="_blank" rel="noreferrer"><MessageCircle size={16} /> Message host instead</a>
           <p className="booking-note">You won’t be charged. This sends an availability request to the host.</p>
           <div className="booking-facts"><p><Users /> {stayType === "villa" ? "Up to 8 guests" : "Room occupancy confirmed by host"}</p><p><BedDouble /> {stayType === "villa" ? "4 bedrooms · 8 beds" : "1 king + 1 single bed"}</p><p><Bath /> {stayType === "villa" ? "5 bathrooms" : "Bathroom access"}</p></div>
         </aside>

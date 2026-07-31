@@ -97,6 +97,13 @@ Replace the current editorial brochure-like homepage with a complete, mobile-fir
 - Local browser: confirmed requested hero image order (`hero-pool-villa.avif`, then `hero-aerial.png`), responsive mobile hero strip and fixed booking bar, desktop two-image mosaic and sticky booking card, scroll-triggered section navigation, 28-photo modal, complete amenities modal, private-room query handoff to Bedroom 4, date selection showing a two-night stay, and video-placeholder mode.
 - Deployment: the Git-connected secondary project passed at `https://revanhills-official.pages.dev/`, then the same redesigned build was uploaded to the original `https://revanhills.pages.dev/` project under the Neofyne Cloudflare account. The original URL returned HTTP 200, its deployed HTML hash matched the local `out/index.html`, and a cache-busted browser load visibly confirmed the property listing, requested hero media, rooms, booking controls, guide links, amenities and rules.
 
+### Booking-flow correction — 2026-08-01
+
+- The homepage booking card now carries stay type, preferred room, check-in, checkout and guest count into `/book` instead of discarding the selected values.
+- The booking page validates future dates, keeps the chosen room/date/guest summary visible, supports changing every selection, and sends the completed enquiry through a same-tab WhatsApp handoff to avoid popup blocking.
+- Guests can also use a visible `Message host` link without completing the full availability form, or call the host directly.
+- Browser verification passed for Private room → Bedroom 4 → 10–12 August 2026 → 3 guests, including the populated booking summary and both host-contact paths. The final WhatsApp send was not triggered during QA because it would open an external conversation.
+
 ### Deferred owner inputs (visible in the UI where relevant)
 
 - Exact room-by-room names and occupancy; whether the private listing is one selectable room or a shared multi-room offer.
