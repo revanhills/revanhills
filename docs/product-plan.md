@@ -82,6 +82,7 @@ Replace the current editorial brochure-like homepage with a complete, mobile-fir
 
 - Desktop hero uses a two-panel mosaic with an overlaid `Show all photos` action; mobile uses a swipeable two-card strip.
 - The section bar appears only after the hero/listing summary has scrolled past and links to Photos, Overview, Rooms, Amenities, Rules, Location and Guide.
+- Sticky section labels use the Revan Hills forest green rather than black, with a coral hover and keyboard-focus treatment.
 - The homepage Photo tour modal keeps its category bar sticky beneath the title. Selecting All photos, Exterior, Pool, Bedrooms, Bathrooms, Dining, Terrace, Garden, Views or Nearby replaces the grid with only that category and shows the photo count, avoiding one undifferentiated vertical tower.
 - The Junagadh heritage card uses a local optimized photograph of Mahabat Maqbara rather than any Revan Hills property image. Source: Kuldeep S, Wikimedia Commons, CC BY-SA 4.0. The former card image, `terrace-night.avif`, remains in the Photo tour exclusively under Terrace.
 - The Somnath coastal extension card uses a local optimized photograph of Somnath Temple beside the Arabian Sea. Source: Sneha G Gupta, Wikimedia Commons, CC BY-SA 4.0. The former card image, `pool-sunset.avif`, remains in the Photo tour exclusively under Pool.
