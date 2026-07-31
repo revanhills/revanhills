@@ -4,13 +4,12 @@ export function Brand({ light = false }: { light?: boolean }) {
   return (
     <Link className={`brand ${light ? "brand--light" : ""}`} href="/" aria-label="Revan Hills home">
       <svg className="brand__mark" viewBox="0 0 48 48" aria-hidden="true">
-        <g fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round">
-          <path d="m24 4-7 3-4 6 1 10c1 9 5 16 10 19 5-3 9-10 10-19l1-10-4-6Z" strokeWidth="2.6" />
-          <path d="m17 7-7-2 3 8M31 7l7-2-3 8" strokeWidth="2.6" />
-          <path d="M14 15c-5 3-7 7-6 13 1 7 5 12 11 15M34 15c5 3 7 7 6 13-1 7-5 12-11 15" strokeWidth="3" />
-          <path d="M18 20c2-1 4-1 6 0M25 20c2-1 4-1 6 0" strokeWidth="2" />
-          <path d="m24 25-3 3 3 2 3-2Z" fill="var(--coral)" stroke="var(--coral)" strokeWidth="1.5" />
-          <path d="M18 32c2 1 4 1 6 1s4 0 6-1M19 36c3 3 7 3 10 0M24 30v8" strokeWidth="2" />
+        <g fill="none" stroke="currentColor" strokeLinecap="square" strokeLinejoin="miter">
+          <path d="m24 2 9 4 7 8 2 10-3 11-7 8-8 4-8-4-7-8-3-11 2-10 7-8Z" strokeWidth="2.5" />
+          <path d="m10 18 6-8 8 6 8-6 6 8M10 18l7-5m21 5-7-5" strokeWidth="2.1" />
+          <path d="m16 19 6 2-4 3M32 19l-6 2 4 3M24 17v12" strokeWidth="2.2" />
+          <path d="m20 29 4-2 4 2-4 4Z" fill="currentColor" strokeWidth="1.5" />
+          <path d="m16 27 3 11 5 4 5-4 3-11M24 33v9" strokeWidth="2.2" />
         </g>
       </svg>
       <span className="brand__type"><strong>REVAN HILLS</strong><span>ECOSTAY</span></span>
