@@ -82,6 +82,7 @@ Replace the current editorial brochure-like homepage with a complete, mobile-fir
 
 - Desktop hero uses a two-panel mosaic with an overlaid `Show all photos` action; mobile uses a swipeable two-card strip.
 - The section bar appears only after the hero/listing summary has scrolled past and links to Photos, Overview, Rooms, Amenities, Rules, Location and Guide.
+- The homepage Photo tour modal keeps its category bar sticky beneath the title. Selecting All photos, Exterior, Pool, Bedrooms, Bathrooms, Dining, Terrace, Garden, Views or Nearby replaces the grid with only that category and shows the photo count, avoiding one undifferentiated vertical tower.
 - Long content is progressively disclosed: amenities open in a modal; rules, safety and cancellation use expandable/modal detail views; FAQs use accordions; booking controls remain direct and visible.
 - Desktop booking summary is sticky beside listing content. Mobile uses a non-obscuring sticky bottom bar with `Check dates` and `WhatsApp`.
 - All dialogs must have an accessible title, close button, Escape handling, focus-safe controls and scrollable mobile layout.

@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import {
   ArrowRight,
   Bath,
@@ -27,11 +27,18 @@ import {
   X,
 } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
-import { amenityGroups, guideItems, houseRules, mediaItems, roomItems, unavailableAmenities } from "@/lib/property-data";
+import { amenityGroups, guideItems, houseRules, MediaCategory, mediaItems, roomItems, unavailableAmenities } from "@/lib/property-data";
 
 type ModalName = "photos" | "amenities" | "rules" | "video" | null;
+type PhotoCategory = "All" | MediaCategory;
+
+const photoCategories: PhotoCategory[] = ["All", "Exterior", "Pool", "Bedrooms", "Bathrooms", "Dining", "Terrace", "Garden", "Views", "Nearby"];
 
 function Modal({ active, close }: { active: Exclude<ModalName, null>; close: () => void }) {
+  const [photoCategory, setPhotoCategory] = useState<PhotoCategory>("All");
+  const modalBodyRef = useRef<HTMLDivElement>(null);
+  const filteredPhotos = photoCategory === "All" ? mediaItems : mediaItems.filter((item) => item.category === photoCategory);
+
   useEffect(() => {
     const onKey = (event: KeyboardEvent) => event.key === "Escape" && close();
     window.addEventListener("keydown", onKey);
@@ -42,13 +49,29 @@ function Modal({ active, close }: { active: Exclude<ModalName, null>; close: () 
     };
   }, [close]);
 
+  const choosePhotoCategory = (nextCategory: PhotoCategory) => {
+    setPhotoCategory(nextCategory);
+    modalBodyRef.current?.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   const title = active === "photos" ? "Photo tour" : active === "amenities" ? "What this place offers" : active === "rules" ? "Things to know" : "Property videos";
   return (
     <div className="modal-backdrop" role="presentation" onMouseDown={(event) => event.target === event.currentTarget && close()}>
       <section className={`modal-panel modal-panel--${active}`} role="dialog" aria-modal="true" aria-labelledby="modal-title">
         <div className="modal-header"><h2 id="modal-title">{title}</h2><button className="icon-button" onClick={close} aria-label="Close"><X /></button></div>
-        <div className="modal-body">
-          {active === "photos" && <div className="modal-photo-grid">{mediaItems.map((item, index) => <figure key={item.src} className={index % 7 === 0 ? "wide" : ""}><Image src={item.src} alt={item.alt} fill sizes="(max-width: 700px) 100vw, 50vw" /><figcaption>{item.category}</figcaption></figure>)}</div>}
+        <div ref={modalBodyRef} className={`modal-body ${active === "photos" ? "modal-body--photos" : ""}`}>
+          {active === "photos" && <>
+            <nav className="photo-tour-nav" aria-label="Photo categories">
+              <div className="photo-tour-tabs" role="tablist" aria-label="Choose a photo category">
+                {photoCategories.map((item) => {
+                  const count = item === "All" ? mediaItems.length : mediaItems.filter((photo) => photo.category === item).length;
+                  return <button key={item} type="button" role="tab" aria-selected={photoCategory === item} className={photoCategory === item ? "active" : ""} onClick={() => choosePhotoCategory(item)}><span>{item === "All" ? "All photos" : item}</span><small>{count}</small></button>;
+                })}
+              </div>
+              <p><strong>{photoCategory === "All" ? "Entire property" : photoCategory}</strong><span>{filteredPhotos.length} photo{filteredPhotos.length === 1 ? "" : "s"}</span></p>
+            </nav>
+            <div className="modal-photo-grid">{filteredPhotos.map((item, index) => <figure key={item.src} className={index === 0 && filteredPhotos.length > 2 ? "wide" : ""}><Image src={item.src} alt={item.alt} fill sizes="(max-width: 700px) 100vw, 50vw" /><figcaption>{item.alt}</figcaption></figure>)}</div>
+          </>}
           {active === "amenities" && <><div className="amenity-modal-grid">{amenityGroups.map((group) => <section key={group.title}><h3>{group.title}</h3>{group.items.map((item) => <p key={item}><Check size={18} />{item}</p>)}</section>)}</div><section className="not-included"><h3>Not included or not yet reported</h3>{unavailableAmenities.map((item) => <p key={item}><X size={18} />{item}</p>)}</section></>}
           {active === "rules" && <div className="rules-modal"><section><h3>Checking in and out</h3><p>Check-in is from 10:00 am to 12:00 pm. Checkout is before 10:00 am. Building staff can help you self check in.</p></section><section><h3>During your stay</h3>{houseRules.map((rule) => <p key={rule}><Check size={18} />{rule}</p>)}</section><section><h3>Safety & property</h3><p>Exterior CCTV cameras cover common outdoor areas. There are no cameras inside bedrooms, bathrooms or private guest spaces.</p><p>Smoke and carbon monoxide alarm availability is not currently confirmed. Ask the host before booking if this is important to you.</p></section></div>}
           {active === "video" && <div className="video-placeholder-grid"><article className="video-card video-card--portrait"><div><Play fill="currentColor" /><span>Vertical video</span></div><h3>Full property walkthrough</h3><p>Video coming soon</p></article><article className="video-card video-card--portrait"><div><Play fill="currentColor" /><span>Vertical video</span></div><h3>Room-by-room tour</h3><p>Video coming soon</p></article><article className="video-card video-card--landscape"><div><Play fill="currentColor" /><span>Horizontal video</span></div><h3>Revan Hills from the air</h3><p>Video coming soon</p></article></div>}
