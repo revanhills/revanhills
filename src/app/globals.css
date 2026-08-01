@@ -74,3 +74,10 @@ h1,h2,h3,p{overflow-wrap:break-word}.button{border:0;min-height:46px;border-radi
 @media(max-width:760px){.booking-page-grid{padding-top:15px}.booking-page-new h1{font-size:34px}.booking-intro{font-size:13px;line-height:1.45;margin:10px 0 0}.booking-form{margin-top:18px}.booking-form fieldset{padding:18px 0}.booking-form legend{font-size:16px;margin-bottom:11px}.booking-option-grid{grid-template-columns:1fr 1fr;gap:7px}.booking-option-grid button{min-height:76px;padding:11px}.booking-option-grid button.active{padding:10px}.booking-option-grid strong{font-size:13px}.booking-option-grid span{font-size:10px}.booking-option-grid i{width:19px;height:19px;right:8px;top:8px}.field input,.field select,.field textarea{padding:11px}.guest-stepper{grid-template-columns:1fr 34px 20px 34px;padding:9px}.guest-stepper button{width:34px;height:34px}.booking-submit{height:49px}}
 
 @media(max-width:760px){.booking-page-grid{row-gap:0}}
+
+.header-contact-row__email{color:#415f55!important;background:#eef4f0;border-color:#d4e1da!important}.header-contact-row__email:hover{background:#e2eee7}
+
+/* Landing-page sharing stays close to the property title without covering the hero. */
+.listing-actions{position:relative;align-items:center}.listing-actions button{min-height:42px;border:1px solid var(--line);border-radius:999px;background:#fff;padding:0 14px;text-decoration:none;transition:transform .18s,background .18s,box-shadow .18s}.listing-actions button:hover{background:var(--soft);transform:translateY(-1px)}.listing-actions button:active{transform:translateY(1px) scale(.98)}.listing-actions button:focus-visible{outline:3px solid rgba(31,73,62,.35);outline-offset:3px}.share-status{position:absolute;right:0;top:calc(100% + 6px);width:max-content;margin:0;border-radius:7px;background:var(--ink);color:#fff;padding:6px 8px;font-size:11px;font-weight:800;box-shadow:0 6px 18px rgba(0,0,0,.14)}.share-status:empty{display:none}
+
+@media(max-width:760px){.listing-actions{display:flex;align-self:flex-end;margin-top:9px}.listing-actions button{min-height:40px;padding:0 12px;font-size:12px}.share-status{top:auto;bottom:calc(100% + 6px)}}

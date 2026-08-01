@@ -18,6 +18,7 @@ import {
   Images,
   MessageCircle,
   Play,
+  Share2,
   ShieldCheck,
   Sparkles,
   Trees,
@@ -113,6 +114,50 @@ export function PropertyListing() {
   const [checkIn, setCheckIn] = useState("");
   const [checkOut, setCheckOut] = useState("");
   const [guests, setGuests] = useState(2);
+  const [shareStatus, setShareStatus] = useState<"" | "copied" | "unavailable">("");
+  const shareStatusTimeout = useRef<number | null>(null);
+
+  const canonicalShareUrl = "https://revanhills-official.pages.dev/";
+
+  const announceShareStatus = (status: "copied" | "unavailable") => {
+    setShareStatus(status);
+    if (shareStatusTimeout.current) window.clearTimeout(shareStatusTimeout.current);
+    shareStatusTimeout.current = window.setTimeout(() => setShareStatus(""), 2800);
+  };
+
+  const copyShareLink = async () => {
+    try {
+      await navigator.clipboard.writeText(canonicalShareUrl);
+      announceShareStatus("copied");
+    } catch {
+      const temporaryInput = document.createElement("textarea");
+      temporaryInput.value = canonicalShareUrl;
+      temporaryInput.setAttribute("readonly", "");
+      temporaryInput.style.position = "fixed";
+      temporaryInput.style.opacity = "0";
+      document.body.appendChild(temporaryInput);
+      temporaryInput.select();
+      const copied = document.execCommand("copy");
+      temporaryInput.remove();
+      announceShareStatus(copied ? "copied" : "unavailable");
+    }
+  };
+
+  const shareProperty = async () => {
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: "Revan Hills | Farmstay near Girnar",
+          text: "Private villa & farmstay near Girnar",
+          url: canonicalShareUrl,
+        });
+        return;
+      } catch (error) {
+        if (error instanceof DOMException && error.name === "AbortError") return;
+      }
+    }
+    await copyShareLink();
+  };
 
   const bookingHref = useMemo(() => {
     const params = new URLSearchParams({ stay: stayType, guests: String(guests) });
@@ -129,6 +174,10 @@ export function PropertyListing() {
     return () => window.removeEventListener("scroll", update);
   }, []);
 
+  useEffect(() => () => {
+    if (shareStatusTimeout.current) window.clearTimeout(shareStatusTimeout.current);
+  }, []);
+
   return (
     <main className="listing-page">
       <SiteHeader compact />
@@ -141,7 +190,7 @@ export function PropertyListing() {
 
       <section className="shell listing-heading">
         <div><p className="listing-kicker"><span>Farm stay in Malida, near Junagadh</span><span className="listing-kicker__separator" aria-hidden="true">|</span><span>Hosted by Devang</span></p><h1>Private villa & farmstay near Girnar</h1><div className="listing-fact-row" aria-label="Property highlights"><span><Users /> 8 guests</span><span><DoorOpen /> 4 bedrooms</span><span><BedDouble /> 8 beds</span><span><Bath /> 5 bathrooms</span></div></div>
-        <div className="listing-actions"><button onClick={() => navigator.clipboard?.writeText(window.location.href)}><ArrowRight size={17} /> Share</button></div>
+        <div className="listing-actions"><button type="button" onClick={shareProperty} aria-label="Share Revan Hills"><Share2 size={17} /> Share</button><p className="share-status" role="status" aria-live="polite">{shareStatus === "copied" ? "Link copied" : shareStatus === "unavailable" ? "Copy the link from your browser" : ""}</p></div>
       </section>
 
       <section id="photos" className="shell hero-gallery">
