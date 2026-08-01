@@ -147,10 +147,10 @@ export function PropertyListing() {
       <section id="photos" className="shell hero-gallery">
         <div className="hero-gallery__lead-wrap">
           <button className="hero-gallery__lead" onClick={() => setModal("photos")} aria-label="Open all property photos"><Image src="/images/property/hero-pool-villa.avif" alt="Revan Hills villa and infinity pool in daylight" fill priority sizes="100vw" /></button>
-          <div className="hero-media-selector" aria-label="Open property media tour"><button type="button" onClick={() => setModal("photos")}><Images /> {mediaItems.length} photos</button><button type="button" onClick={() => setModal("video")}><Play /> Videos <small>coming soon</small></button></div>
+          <div className="hero-media-selector" aria-label="Open property media tour"><button type="button" onClick={() => setModal("photos")}><Images /> Photos</button><button type="button" onClick={() => setModal("video")}><Play /> Videos <small>coming soon</small></button></div>
         </div>
         <div className="hero-gallery__strip" role="list" aria-label="More property photos">
-          {mediaItems.slice(1, 17).map((item, index) => <button key={item.src} role="listitem" className={index % 4 === 0 ? "hero-gallery__thumb hero-gallery__thumb--wide" : index % 4 === 3 ? "hero-gallery__thumb hero-gallery__thumb--narrow" : "hero-gallery__thumb"} onClick={() => setModal("photos")} aria-label={`Open photo tour: ${item.alt}`}><Image src={item.src} alt={item.alt} fill sizes="(max-width: 760px) 40vw, 20vw" /></button>)}
+          {mediaItems.filter((item) => item.category !== "Bathrooms").slice(1, 17).map((item, index) => <button key={item.src} role="listitem" className={index % 4 === 0 ? "hero-gallery__thumb hero-gallery__thumb--wide" : index % 4 === 3 ? "hero-gallery__thumb hero-gallery__thumb--narrow" : "hero-gallery__thumb"} onClick={() => setModal("photos")} aria-label={`Open photo tour: ${item.alt}`}><Image src={item.src} alt={item.alt} fill sizes="(max-width: 760px) 40vw, 20vw" /></button>)}
         </div>
       </section>
 
