@@ -134,13 +134,13 @@ export function PropertyListing() {
       <SiteHeader compact />
       <nav className={`section-nav ${showSections ? "section-nav--visible" : ""}`} aria-label="Property sections">
         <div className="shell section-nav__inner">
-          <div>{[["Photos", "#photos"], ["Overview", "#overview"], ["Rooms", "#rooms"], ["Amenities", "#amenities"], ["Rules", "#rules"], ["Location", "#location"], ["Guide", "#guide"]].map(([label, href]) => <a key={href} href={href}>{label}</a>)}</div>
+          <div>{[["Photos", "#photos"], ["Videos", "#videos"], ["Overview", "#overview"], ["Rooms", "#rooms"], ["Amenities", "#amenities"], ["Rules", "#rules"], ["Location", "#location"], ["Guide", "#guide"]].map(([label, href]) => <a key={href} href={href}>{label}</a>)}</div>
           <Link href="/book" className="button button--coral">Check dates</Link>
         </div>
       </nav>
 
       <section className="shell listing-heading">
-        <div><p className="listing-kicker">Farm stay in Malida, near Junagadh</p><h1>Private villa & farmstay near Girnar</h1><div className="listing-fact-row" aria-label="Property highlights"><span className="listing-host">Hosted by Devang</span><span><Users /> 8 guests</span><span><DoorOpen /> 4 bedrooms</span><span><BedDouble /> 8 beds</span><span><Bath /> 5 bathrooms</span></div></div>
+        <div><p className="listing-kicker"><span>Farm stay in Malida, near Junagadh</span><span className="listing-kicker__separator" aria-hidden="true">|</span><span>Hosted by Devang</span></p><h1>Private villa & farmstay near Girnar</h1><div className="listing-fact-row" aria-label="Property highlights"><span><Users /> 8 guests</span><span><DoorOpen /> 4 bedrooms</span><span><BedDouble /> 8 beds</span><span><Bath /> 5 bathrooms</span></div></div>
         <div className="listing-actions"><button onClick={() => navigator.clipboard?.writeText(window.location.href)}><ArrowRight size={17} /> Share</button></div>
       </section>
 
@@ -150,7 +150,7 @@ export function PropertyListing() {
           <div className="hero-media-selector" aria-label="Open property media tour"><button type="button" onClick={() => setModal("photos")}><Images /> {mediaItems.length} photos</button><button type="button" onClick={() => setModal("video")}><Play /> Videos <small>coming soon</small></button></div>
         </div>
         <div className="hero-gallery__strip" role="list" aria-label="More property photos">
-          {mediaItems.slice(1, 9).map((item, index) => <button key={item.src} role="listitem" className={index % 4 === 0 ? "hero-gallery__thumb hero-gallery__thumb--wide" : index % 4 === 3 ? "hero-gallery__thumb hero-gallery__thumb--narrow" : "hero-gallery__thumb"} onClick={() => setModal("photos")} aria-label={`Open photo tour: ${item.alt}`}><Image src={item.src} alt={item.alt} fill sizes="(max-width: 760px) 40vw, 20vw" /></button>)}
+          {mediaItems.slice(1, 17).map((item, index) => <button key={item.src} role="listitem" className={index % 4 === 0 ? "hero-gallery__thumb hero-gallery__thumb--wide" : index % 4 === 3 ? "hero-gallery__thumb hero-gallery__thumb--narrow" : "hero-gallery__thumb"} onClick={() => setModal("photos")} aria-label={`Open photo tour: ${item.alt}`}><Image src={item.src} alt={item.alt} fill sizes="(max-width: 760px) 40vw, 20vw" /></button>)}
         </div>
       </section>
 
@@ -169,7 +169,7 @@ export function PropertyListing() {
           </section>
 
           <section id="rooms" className="listing-section">
-            <div className="section-title"><div><p className="eyebrow">WHERE YOU’LL SLEEP</p><h2>4 rooms, 2 ways to stay</h2></div><Link href="/rooms">See room details <ArrowRight size={17} /></Link></div>
+            <div className="section-title"><div><p className="eyebrow">WHERE YOU’LL SLEEP</p><h2>4 rooms, 8 beds, 2 ways to stay</h2></div><Link href="/rooms">See room details <ArrowRight size={17} /></Link></div>
             <div className="room-scroll">{roomItems.map((room) => <article className="room-card" key={room.slug}><Link href={`/book?stay=room&room=${room.slug}`}><div className="room-card__image"><Image src={room.image} alt={room.name} fill sizes="(max-width: 760px) 78vw, 30vw" /></div><h3>{room.name}</h3><p>{room.beds}</p><span>{room.tone}</span></Link></article>)}</div>
             <div className="stay-choice-callout"><BedDouble /><div><h3>Prefer the whole place?</h3><p>Reserve all four bedrooms and the full villa for up to 8 guests.</p></div><Link href="/book?stay=villa">Choose entire villa</Link></div>
           </section>
@@ -182,7 +182,7 @@ export function PropertyListing() {
             <button className="button button--outline-square" onClick={() => setModal("amenities")}>Show all amenities</button>
           </section>
 
-          <section className="listing-section media-invite">
+          <section id="videos" className="listing-section media-invite">
             <div><p className="eyebrow">WATCH THE PROPERTY</p><h2>Walkthroughs are coming next</h2><p>The gallery is ready for portrait-first room tours, farm moments and longer landscape walkthroughs when the videos arrive.</p><button className="button button--ink" onClick={() => setModal("video")}><Play size={17} /> Preview video library</button></div>
             <div className="phone-video-placeholder"><div><Play fill="currentColor" /></div><span>Vertical property tour<br />coming soon</span></div>
           </section>
